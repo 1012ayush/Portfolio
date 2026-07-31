@@ -189,9 +189,26 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
 .faq-item p{font-size:15px; line-height:1.6;}
 
 /* CONTACT FOOTER */
-.banner{
-  background:var(--yellow); border:3px solid var(--ink); border-radius:14px; padding:16px 20px; text-align:center;
-  font-family:'Archivo Black'; font-size:17px; box-shadow:var(--shadow-sm); margin-bottom:28px; transform:rotate(-1deg);
+.banner-ribbon{
+  background:var(--yellow); border:3px solid var(--ink); border-radius:14px;
+  box-shadow:var(--shadow-sm); margin-bottom:28px; transform:rotate(-1deg);
+  overflow:hidden; white-space:nowrap; padding:16px 0; position:relative;
+}
+.ribbon-track{
+  display:inline-flex; width:max-content; animation: marquee 16s linear infinite;
+}
+.ribbon-track:hover{ animation-play-state:paused; }
+.ribbon-track .seg{ display:flex; align-items:center; }
+.ribbon-track .seg span{
+  font-family:'Archivo Black'; font-size:17px; white-space:nowrap; padding:0 20px;
+}
+.ribbon-track .seg .dot2{ font-size:14px; opacity:.6; }
+@keyframes marquee{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .ribbon-track{ animation:none; }
 }
 .footer{background:var(--ink); color:#fff; border-radius:24px; padding:36px 24px; text-align:center; border:3px solid var(--ink); box-shadow:var(--shadow);}
 .footer h2{font-family:'Archivo Black'; color:var(--pink); font-size:26px; margin-bottom:14px;}
@@ -589,7 +606,20 @@ guest@ayush:~$<span class="dim"> _</span></div>
     </div>
   </div>
 
-  <div class="banner">🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</div>
+  <div class="banner-ribbon">
+    <div class="ribbon-track">
+      <div class="seg">
+        <span>🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</span><span class="dot2">★</span>
+        <span>🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</span><span class="dot2">★</span>
+        <span>🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</span><span class="dot2">★</span>
+      </div>
+      <div class="seg">
+        <span>🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</span><span class="dot2">★</span>
+        <span>🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</span><span class="dot2">★</span>
+        <span>🛠️ AVAILABLE FOR INTERNSHIPS &amp; FREELANCE WORK</span><span class="dot2">★</span>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <div id="contact" class="footer">
