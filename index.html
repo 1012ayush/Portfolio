@@ -93,6 +93,7 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
   width:46px; height:46px; border-radius:50%; border:3px solid var(--ink); display:flex; align-items:center; justify-content:center;
   background:#fff; text-decoration:none; font-size:20px; box-shadow:var(--shadow-sm); color:var(--ink);
 }
+.social-row a svg{ width:22px; height:22px; fill:currentColor; display:block; }
 
 /* SECTION TITLE PILL */
 .section-title{
@@ -183,6 +184,57 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
 #gameCanvas{width:100%; background:#0d0d12; border-radius:10px; display:block; touch-action:none;}
 .game-hint{font-family:'IBM Plex Mono'; font-size:12px; color:#94a3b8; text-align:center; margin-top:10px;}
 
+/* GAME TABS / SWITCHER */
+.game-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
+.game-tab{
+  border:3px solid var(--ink); border-radius:30px; padding:10px 18px; font-family:'IBM Plex Mono';
+  font-weight:700; font-size:13px; background:#fff; cursor:pointer; box-shadow:var(--shadow-sm);
+  transition:transform .08s ease;
+}
+.game-tab:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink);}
+.game-tab.active{background:var(--yellow);}
+.game-panel{display:none;}
+.game-panel.active{display:block;}
+
+/* TYPING TEST */
+.typing-lang-badge{display:inline-block; background:var(--purple); color:#fff; font-family:'IBM Plex Mono'; font-weight:700; font-size:12px; padding:4px 10px; border-radius:6px; margin-bottom:10px;}
+.typing-stats{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-family:'IBM Plex Mono'; font-size:13px;}
+.typing-stats .stat{background:#1a1a22; border:2px solid #333; border-radius:8px; padding:6px 12px; color:#4ade80;}
+.typing-box{
+  background:#161620; border:2px solid #333; border-radius:10px; padding:16px; font-family:'IBM Plex Mono';
+  font-size:14px; line-height:1.7; min-height:110px; white-space:pre-wrap; word-break:break-word; margin-bottom:12px;
+}
+.typing-box .correct{color:#4ade80;}
+.typing-box .incorrect{color:#ff5f56; text-decoration:underline;}
+.typing-box .pending{color:#6b7280;}
+.typing-box .current{background:#fbc531; color:#0d0d12; border-radius:2px;}
+#typingInput{
+  width:100%; background:#0d0d12; border:2px solid #4ade80; border-radius:10px; color:#e5e5e5;
+  font-family:'IBM Plex Mono'; font-size:14px; padding:12px; outline:none; resize:none;
+}
+.typing-result{font-family:'IBM Plex Mono'; color:#fbc531; margin-top:10px; font-size:13px; min-height:18px;}
+.typing-btn-row{display:flex; gap:10px; margin-top:12px;}
+.typing-btn-row button{
+  border:2px solid #333; background:#1a1a22; color:#e5e5e5; font-family:'IBM Plex Mono'; font-size:12px;
+  font-weight:700; padding:8px 14px; border-radius:8px; cursor:pointer;
+}
+
+/* WHACK-A-BUG */
+.whack-hud{display:flex; justify-content:space-between; font-family:'IBM Plex Mono'; font-size:13px; margin-bottom:12px;}
+.whack-hud .wscore{color:#4ade80;} .whack-hud .wtime{color:#ff8577;}
+.whack-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
+.whack-hole{
+  aspect-ratio:1; background:#1a1a22; border:2px solid #333; border-radius:12px;
+  display:flex; align-items:center; justify-content:center; font-size:30px; cursor:pointer;
+  user-select:none; -webkit-user-select:none;
+}
+.whack-hole.up{background:#241a1a; border-color:var(--pink); animation:popIn .15s ease;}
+.whack-hole.hit{background:#14231a; border-color:var(--green);}
+@keyframes popIn{ from{transform:scale(.5); opacity:0;} to{transform:scale(1); opacity:1;} }
+.whack-start-overlay{
+  text-align:center; font-family:'IBM Plex Mono'; color:#94a3b8; font-size:13px; padding:16px 0;
+}
+
 /* FAQ */
 .faq-item{background:#fff; border:3px solid var(--ink); border-radius:18px; padding:20px; margin-bottom:16px; box-shadow:var(--shadow-sm);}
 .faq-item h4{color:#7c5cf0; font-family:'IBM Plex Mono'; font-size:17px; margin-bottom:10px;}
@@ -215,7 +267,36 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
 .footer p.contact-line{font-family:'IBM Plex Mono'; font-size:14px; margin-bottom:16px; color:#ddd;}
 .footer .foot-socials{display:flex; justify-content:center; gap:14px; margin:20px 0;}
 .footer .foot-socials a{color:#fff; border:2px solid #fff; width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none;}
+.footer .foot-socials a svg{ width:20px; height:20px; fill:currentColor; display:block; }
 .footer .credit{font-size:12px; color:#888; margin-top:18px; font-family:'IBM Plex Mono';}
+
+/* ART STUDIO / PAINT APP */
+.paint-app{ background:#fff; border:3px solid var(--ink); border-radius:16px; overflow:visible; box-shadow:var(--shadow); }
+.paint-menubar{ background:var(--ink); display:flex; align-items:center; gap:4px; padding:8px 12px; border-radius:13px 13px 0 0; position:relative; }
+.paint-menu{ position:relative; }
+.paint-menu-btn{ background:transparent; border:none; color:#fff; font-family:'IBM Plex Mono'; font-weight:700; font-size:13px; padding:8px 14px; border-radius:6px; cursor:pointer; }
+.paint-menu-btn:hover, .paint-menu-btn.active{ background:var(--purple); }
+.paint-menu-dropdown{ display:none; position:absolute; top:calc(100% + 6px); left:0; background:#fff; border:3px solid var(--ink); border-radius:10px; box-shadow:var(--shadow-sm); min-width:170px; z-index:30; overflow:hidden; }
+.paint-menu-dropdown.open{ display:block; }
+.paint-menu-dropdown button{ display:block; width:100%; text-align:left; background:#fff; border:none; border-bottom:2px solid #eee; padding:10px 14px; font-family:'IBM Plex Mono'; font-size:13px; font-weight:600; cursor:pointer; color:var(--ink); }
+.paint-menu-dropdown button:last-child{ border-bottom:none; }
+.paint-menu-dropdown button:hover:not(:disabled){ background:var(--yellow); }
+.paint-menu-dropdown button:disabled{ opacity:.35; cursor:not-allowed; }
+.paint-title{ margin-left:auto; color:#94a3b8; font-family:'IBM Plex Mono'; font-size:12px; }
+
+.paint-toolbar{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; padding:14px 16px; background:#f4f4f4; border-bottom:3px solid var(--ink); }
+.paint-tools{ display:flex; gap:8px; }
+.paint-tool-btn{ width:42px; height:42px; border:2px solid var(--ink); border-radius:10px; background:#fff; font-size:18px; cursor:pointer; box-shadow:2px 2px 0 var(--ink); }
+.paint-tool-btn.active{ background:var(--yellow); }
+.paint-colors{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+.paint-swatch{ width:26px; height:26px; border-radius:50%; border:2px solid var(--ink); cursor:pointer; padding:0; }
+.paint-swatch.active{ outline:3px solid var(--purple); outline-offset:2px; }
+.paint-color-picker{ width:38px; height:38px; border:2px solid var(--ink); border-radius:10px; padding:0; cursor:pointer; background:none; }
+.paint-size-row{ display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:12px; }
+.paint-size-row input[type="range"]{ width:100px; }
+
+.paint-canvas-wrap{ background:#fff; padding:10px; border-radius:0 0 13px 13px; }
+#paintCanvas{ width:100%; height:auto; aspect-ratio:700/420; background:#ffffff; border:2px dashed #ccc; border-radius:10px; display:block; touch-action:none; cursor:crosshair; }
 
 .section-gap{height:8px;}
 
@@ -264,6 +345,8 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
 
   /* Game: constrain width, center it */
   .game-wrap{ max-width:760px; margin:0 auto; }
+  .game-tabs{ justify-content:center; }
+  .whack-grid{ max-width:420px; margin:0 auto; }
 
   /* FAQ grid */
   .faq-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
@@ -296,6 +379,7 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
       <a href="javascript:void(0)" class="nav-link" data-target="achievements">Achievements</a>
       <a href="javascript:void(0)" class="nav-link" data-target="game">Play</a>
       <a href="javascript:void(0)" class="nav-link" data-target="faq">FAQ</a>
+      <a href="javascript:void(0)" class="nav-link" data-target="art">Art</a>
       <a href="javascript:void(0)" class="nav-link" data-target="contact">Contact</a>
     </div>
   </div>
@@ -317,10 +401,10 @@ hr.divider{border:none; border-top:2px solid var(--ink); margin:20px 0;}
   <a href="mailto:sumitkatiyar783@gmail.com" class="btn btn-pink">✉ CONTACT ME</a>
 </div>
       <div class="social-row">
-        <a href="mailto:sumitkatiyar783@gmail.com" title="Email">✉</a>
-        <a href="https://github.com/1012ayush" target="_blank" title="GitHub">⌨</a>
-        <a href="linkedin.com/in/ayush-katiyar-388bab324" target="_blank" title="LinkedIn">in</a>
-        <a href="https://leetcode.com/AyushKatiyar22" target="_blank" title="LeetCode">{ }</a>
+        <a href="mailto:sumitkatiyar783@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a href="https://github.com/1012ayush" target="_blank" title="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a href="https://linkedin.com/in/ayush-katiyar-388bab324" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg></a>
+        <a href="https://leetcode.com/AyushKatiyar22" target="_blank" title="LeetCode"><svg viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.396-.396.396-1.039 0-1.435-.396-.396-1.04-.396-1.436 0l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.438.354 1.081.287 1.435-.15.354-.437.287-1.08-.15-1.434l-3.5-2.831c-.995-.805-2.298-1.209-3.57-1.184L14.443 1.68A1.374 1.374 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382H10.617z"/></svg></a>
       </div>
     </div>
   </div>
@@ -576,14 +660,62 @@ guest@ayush:~$<span class="dim"> _</span></div>
   <!-- GAME -->
   <div id="game" class="card">
     <div class="section-title">PLAY</div>
-    <div class="mono" style="margin-bottom:14px; font-size:14px;">🐛 Beat the high score! Dodge the red compile errors.</div>
+    <div class="mono" style="margin-bottom:14px; font-size:14px;">🎮 Pick a game and beat the high score!</div>
+
+    <div class="game-tabs">
+      <button class="game-tab active" data-game="dodger" type="button">🐛 BUG_DODGER_SYS.EXE</button>
+      <button class="game-tab" data-game="typing" type="button">⌨️ KEYSTROKE_BENCHMARK.EXE</button>
+      <button class="game-tab" data-game="whack" type="button">🔨 DEBUG_SMASH.EXE</button>
+    </div>
+
     <div class="game-wrap">
-      <div class="game-title-bar">
-        <span class="gt">BUG_DODGER_SYS.EXE</span>
-        <span class="hs">HI-SCORE: <span id="hiScoreDisplay">0</span></span>
+
+      <!-- BUG DODGER PANEL -->
+      <div class="game-panel active" id="panel-dodger">
+        <div class="game-title-bar">
+          <span class="gt">BUG_DODGER_SYS.EXE</span>
+          <span class="hs">HI-SCORE: <span id="hiScoreDisplay">0</span></span>
+        </div>
+        <canvas id="gameCanvas" width="640" height="260"></canvas>
+        <div class="game-hint">🎮 MOBILE: TAP SCREEN TO JUMP. DESKTOP: TAP SPACEBAR OR CLICK. DODGE RED BUGS!</div>
       </div>
-      <canvas id="gameCanvas" width="640" height="260"></canvas>
-      <div class="game-hint">🎮 MOBILE: TAP SCREEN TO JUMP. DESKTOP: TAP SPACEBAR OR CLICK. DODGE RED BUGS!</div>
+
+      <!-- TYPING TEST PANEL -->
+      <div class="game-panel" id="panel-typing">
+        <div class="game-title-bar">
+          <span class="gt">KEYSTROKE_BENCHMARK.EXE</span>
+          <span class="hs">BEST WPM: <span id="typingHiScore">0</span></span>
+        </div>
+        <span class="typing-lang-badge" id="typingLangBadge">JAVASCRIPT</span>
+        <div class="typing-stats">
+          <span class="stat">WPM: <span id="typingWpm">0</span></span>
+          <span class="stat">ACCURACY: <span id="typingAccuracy">100</span>%</span>
+          <span class="stat">TIME: <span id="typingTime">0.0</span>s</span>
+        </div>
+        <div class="typing-box" id="typingBox"></div>
+        <textarea id="typingInput" rows="3" placeholder="Click here and start typing to begin..." spellcheck="false"></textarea>
+        <div class="typing-result" id="typingResult"></div>
+        <div class="typing-btn-row">
+          <button id="typingRestartBtn" type="button">🔄 NEW SNIPPET</button>
+        </div>
+        <div class="game-hint">⌨️ TYPE THE CODE EXACTLY AS SHOWN. TIMER STARTS ON YOUR FIRST KEYSTROKE.</div>
+      </div>
+
+      <!-- WHACK-A-BUG PANEL -->
+      <div class="game-panel" id="panel-whack">
+        <div class="game-title-bar">
+          <span class="gt">DEBUG_SMASH.EXE</span>
+          <span class="hs">HI-SCORE: <span id="whackHiScore">0</span></span>
+        </div>
+        <div class="whack-hud">
+          <span class="wscore">SCORE: <span id="whackScore">0</span></span>
+          <span class="wtime">TIME LEFT: <span id="whackTime">30</span>s</span>
+        </div>
+        <div class="whack-grid" id="whackGrid"></div>
+        <div class="whack-start-overlay" id="whackOverlay">Tap any cell to start squashing bugs 🐛</div>
+        <div class="game-hint">🔨 TAP THE BUG BEFORE IT ESCAPES. 30 SECONDS ON THE CLOCK!</div>
+      </div>
+
     </div>
   </div>
 
@@ -606,6 +738,55 @@ guest@ayush:~$<span class="dim"> _</span></div>
     </div>
   </div>
 
+  <!-- ART STUDIO -->
+  <div id="art" class="card">
+    <div class="section-title pink">ART STUDIO</div>
+    <div class="mono" style="margin-bottom:14px; font-size:14px;">🎨 Doodle something — sketch, scribble, or design right here.</div>
+
+    <div class="paint-app">
+      <!-- MENU BAR -->
+      <div class="paint-menubar">
+        <div class="paint-menu">
+          <button class="paint-menu-btn" data-menu="file" type="button">File</button>
+          <div class="paint-menu-dropdown" id="menuFile">
+            <button data-action="new" type="button">🆕 New Canvas</button>
+            <button data-action="save" type="button">💾 Save as PNG</button>
+          </div>
+        </div>
+        <div class="paint-menu">
+          <button class="paint-menu-btn" data-menu="edit" type="button">Edit</button>
+          <div class="paint-menu-dropdown" id="menuEdit">
+            <button data-action="undo" type="button" disabled>↩ Undo</button>
+            <button data-action="redo" type="button" disabled>↪ Redo</button>
+            <button data-action="clear" type="button">🗑 Clear All</button>
+          </div>
+        </div>
+        <div class="paint-title">ART_STUDIO.EXE</div>
+      </div>
+
+      <!-- TOOLBAR -->
+      <div class="paint-toolbar">
+        <div class="paint-tools">
+          <button class="paint-tool-btn active" data-tool="brush" type="button" title="Brush">🖌</button>
+          <button class="paint-tool-btn" data-tool="eraser" type="button" title="Eraser">🧽</button>
+        </div>
+        <div class="paint-colors" id="paintColors"></div>
+        <input type="color" id="paintColorPicker" class="paint-color-picker" value="#0d0d12" title="Custom color">
+        <div class="paint-size-row">
+          <label for="paintSize">SIZE</label>
+          <input type="range" id="paintSize" min="1" max="40" value="6">
+          <span id="paintSizeVal">6</span>
+        </div>
+      </div>
+
+      <!-- CANVAS -->
+      <div class="paint-canvas-wrap">
+        <canvas id="paintCanvas" width="700" height="420"></canvas>
+      </div>
+    </div>
+    <div class="game-hint">🖱️ CLICK &amp; DRAG (OR TOUCH) TO DRAW. USE FILE TO SAVE, EDIT TO UNDO/REDO/CLEAR.</div>
+  </div>
+
   <div class="banner-ribbon">
     <div class="ribbon-track">
       <div class="seg">
@@ -626,10 +807,10 @@ guest@ayush:~$<span class="dim"> _</span></div>
     <h2>Contact Ayush Katiyar</h2>
     <p class="contact-line">Email: sumitkatiyar783@gmail.com &nbsp;|&nbsp; Location: Kanpur, India</p>
     <div class="foot-socials">
-      <a href="mailto:sumitkatiyar783@gmail.com">✉</a>
-      <a href="https://github.com/1012ayush" target="_blank">⌨</a>
-      <a href="https://linkedin.com/in/ayush-katiyar" target="_blank">in</a>
-      <a href="https://leetcode.com/AyushKatiyar22" target="_blank">{ }</a>
+      <a href="mailto:sumitkatiyar783@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      <a href="https://github.com/1012ayush" target="_blank" title="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      <a href="https://linkedin.com/in/ayush-katiyar" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg></a>
+      <a href="https://leetcode.com/AyushKatiyar22" target="_blank" title="LeetCode"><svg viewBox="0 0 24 24"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.396-.396.396-1.039 0-1.435-.396-.396-1.04-.396-1.436 0l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.438.354 1.081.287 1.435-.15.354-.437.287-1.08-.15-1.434l-3.5-2.831c-.995-.805-2.298-1.209-3.57-1.184L14.443 1.68A1.374 1.374 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382H10.617z"/></svg></a>
     </div>
     <div class="credit">© 2026 Ayush Katiyar. Made with ☕, 💻, and a curious soul.</div>
   </div>
@@ -735,7 +916,23 @@ document.querySelectorAll('.acc-head').forEach(head=>{
   });
 });
 
-// GAME: Bug Dodger
+// ===== GAME SWITCHER =====
+document.querySelectorAll('.game-tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    if(tab.classList.contains('active')) return;
+    document.querySelectorAll('.game-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.game-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    const target = tab.getAttribute('data-game');
+    document.getElementById('panel-'+target).classList.add('active');
+
+    if(target !== 'dodger' && window.dodgerPause) window.dodgerPause();
+    if(target !== 'typing' && window.typingPause) window.typingPause();
+    if(target !== 'whack' && window.whackPause) window.whackPause();
+  });
+});
+
+// GAME 1: Bug Dodger
 (function(){
   const canvas = document.getElementById('gameCanvas');
   const ctx = canvas.getContext('2d');
@@ -764,7 +961,9 @@ document.querySelectorAll('.acc-head').forEach(head=>{
   canvas.addEventListener('mousedown', jump);
   canvas.addEventListener('touchstart', (e)=>{ e.preventDefault(); jump(); });
   window.addEventListener('keydown', (e)=>{
-    if(e.code === 'Space'){ e.preventDefault(); jump(); }
+    if(e.code === 'Space' && document.getElementById('panel-dodger').classList.contains('active')){
+      e.preventDefault(); jump();
+    }
   });
 
   function spawnObstacle(){
@@ -838,6 +1037,473 @@ document.querySelectorAll('.acc-head').forEach(head=>{
   ctx.textAlign='center';
   ctx.fillText('Click / Tap / Space to start', W/2, H/2);
   ctx.textAlign='left';
+
+  window.dodgerPause = function(){ running = false; };
+})();
+
+// GAME 2: Keystroke Benchmark (typing speed test)
+(function(){
+  const codeSnippets = [
+    { lang: 'JAVASCRIPT', code: "function debounce(fn, delay) {\n  let timer;\n  return (...args) => {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn(...args), delay);\n  };\n}" },
+    { lang: 'JAVASCRIPT', code: "const sum = arr => arr.reduce((a, b) => a + b, 0);" },
+    { lang: 'JAVASCRIPT', code: "function isPalindrome(str) {\n  const clean = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n  return clean === clean.split('').reverse().join('');\n}" },
+    { lang: 'JAVASCRIPT', code: "class Stack {\n  #items = [];\n  push(x) { this.#items.push(x); }\n  pop() { return this.#items.pop(); }\n}" },
+    { lang: 'JAVASCRIPT', code: "async function fetchUser(id) {\n  const res = await fetch('/api/users/' + id);\n  if (!res.ok) throw new Error('Not found');\n  return res.json();\n}" },
+    { lang: 'JAVA', code: "public int factorial(int n) {\n    return n <= 1 ? 1 : n * factorial(n - 1);\n}" },
+    { lang: 'JAVA', code: "List<Integer> nums = new ArrayList<>();\nfor (int i = 0; i < 10; i++) {\n    nums.add(i * i);\n}" },
+    { lang: 'JAVA', code: "public class Node {\n    int value;\n    Node next;\n    Node(int value) {\n        this.value = value;\n    }\n}" },
+    { lang: 'JAVA', code: "Map<String, Integer> freq = new HashMap<>();\nfor (String w : words) {\n    freq.merge(w, 1, Integer::sum);\n}" },
+    { lang: 'JAVA', code: "public boolean isPrime(int n) {\n    if (n < 2) return false;\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) return false;\n    }\n    return true;\n}" }
+  ];
+
+  const box = document.getElementById('typingBox');
+  const input = document.getElementById('typingInput');
+  const wpmEl = document.getElementById('typingWpm');
+  const accEl = document.getElementById('typingAccuracy');
+  const timeEl = document.getElementById('typingTime');
+  const resultEl = document.getElementById('typingResult');
+  const langBadge = document.getElementById('typingLangBadge');
+  const restartBtn = document.getElementById('typingRestartBtn');
+  const hiScoreEl = document.getElementById('typingHiScore');
+
+  let currentSnippet = '';
+  let startTime = null;
+  let finished = false;
+  let bestWpm = 0;
+  let tickInterval = null;
+  let lastIndex = -1;
+
+  function renderSnippet(){
+    box.innerHTML = '';
+    const typed = input.value;
+    for(let i=0;i<currentSnippet.length;i++){
+      const span = document.createElement('span');
+      span.textContent = currentSnippet[i] === '\n' ? '↵\n' : currentSnippet[i];
+      if(i < typed.length){
+        span.className = typed[i] === currentSnippet[i] ? 'correct' : 'incorrect';
+      } else if(i === typed.length){
+        span.className = 'current';
+      } else {
+        span.className = 'pending';
+      }
+      box.appendChild(span);
+    }
+  }
+
+  function pickSnippet(){
+    let idx = Math.floor(Math.random()*codeSnippets.length);
+    if(codeSnippets.length > 1){
+      while(idx === lastIndex){ idx = Math.floor(Math.random()*codeSnippets.length); }
+    }
+    lastIndex = idx;
+    const pick = codeSnippets[idx];
+    currentSnippet = pick.code;
+    langBadge.textContent = pick.lang;
+    input.value = '';
+    startTime = null;
+    finished = false;
+    resultEl.textContent = '';
+    wpmEl.textContent = '0';
+    accEl.textContent = '100';
+    timeEl.textContent = '0.0';
+    if(tickInterval){ clearInterval(tickInterval); tickInterval = null; }
+    renderSnippet();
+  }
+
+  function computeAccuracy(){
+    const typed = input.value;
+    let correct = 0;
+    for(let i=0;i<typed.length;i++){
+      if(typed[i] === currentSnippet[i]) correct++;
+    }
+    return typed.length ? Math.round((correct/typed.length)*100) : 100;
+  }
+
+  input.addEventListener('input', ()=>{
+    if(finished) return;
+    if(startTime === null){
+      startTime = Date.now();
+      tickInterval = setInterval(()=>{
+        const elapsed = (Date.now()-startTime)/1000;
+        timeEl.textContent = elapsed.toFixed(1);
+      }, 100);
+    }
+    if(input.value.length > currentSnippet.length){
+      input.value = input.value.slice(0, currentSnippet.length);
+    }
+    renderSnippet();
+    accEl.textContent = computeAccuracy();
+
+    if(input.value.length === currentSnippet.length){
+      finished = true;
+      if(tickInterval){ clearInterval(tickInterval); tickInterval = null; }
+      const elapsedSec = Math.max((Date.now()-startTime)/1000, 0.1);
+      const words = currentSnippet.length/5;
+      const wpm = Math.round((words/elapsedSec)*60);
+      const acc = computeAccuracy();
+      wpmEl.textContent = wpm;
+      timeEl.textContent = elapsedSec.toFixed(1);
+      if(wpm > bestWpm){ bestWpm = wpm; hiScoreEl.textContent = bestWpm; }
+      if(acc === 100){
+        resultEl.textContent = '✅ DONE! ' + wpm + ' WPM at ' + acc + '% accuracy. Click "NEW SNIPPET" to try again.';
+      } else {
+        resultEl.textContent = '⏹ FINISHED with typos. ' + wpm + ' WPM at ' + acc + '% accuracy. Click "NEW SNIPPET" to try again.';
+      }
+    }
+  });
+
+  restartBtn.addEventListener('click', pickSnippet);
+
+  window.typingPause = function(){
+    if(tickInterval){ clearInterval(tickInterval); tickInterval = null; }
+  };
+
+  pickSnippet();
+})();
+
+// GAME 3: Debug Smash (whack-a-bug)
+(function(){
+  const grid = document.getElementById('whackGrid');
+  const scoreEl = document.getElementById('whackScore');
+  const hiScoreEl = document.getElementById('whackHiScore');
+  const timeEl = document.getElementById('whackTime');
+  const overlay = document.getElementById('whackOverlay');
+  const CELLS = 9;
+  const cells = [];
+  let score = 0, hiScore = 0, timeLeft = 30;
+  let running = false;
+  let popTimer = null, countdownTimer = null;
+  let activeCell = null;
+
+  for(let i=0;i<CELLS;i++){
+    const hole = document.createElement('div');
+    hole.className = 'whack-hole';
+    hole.dataset.index = i;
+    grid.appendChild(hole);
+    cells.push(hole);
+    hole.addEventListener('click', ()=>whack(i));
+    hole.addEventListener('touchstart', (e)=>{ e.preventDefault(); whack(i); }, {passive:false});
+  }
+
+  function clearCell(i){
+    cells[i].classList.remove('up','hit');
+    cells[i].textContent = '';
+  }
+
+  function scheduleBug(){
+    if(!running) return;
+    if(activeCell !== null){ clearCell(activeCell); }
+    const idx = Math.floor(Math.random()*CELLS);
+    activeCell = idx;
+    cells[idx].classList.add('up');
+    cells[idx].textContent = '🐛';
+    const upTime = Math.max(450, 950 - score*15);
+    popTimer = setTimeout(()=>{
+      if(!running) return;
+      clearCell(idx);
+      activeCell = null;
+      scheduleBug();
+    }, upTime);
+  }
+
+  function startGame(){
+    if(running) return;
+    running = true;
+    score = 0; timeLeft = 30;
+    scoreEl.textContent = score;
+    timeEl.textContent = timeLeft;
+    overlay.style.display = 'none';
+    cells.forEach((c,i)=>clearCell(i));
+    scheduleBug();
+    countdownTimer = setInterval(()=>{
+      timeLeft--;
+      timeEl.textContent = timeLeft;
+      if(timeLeft <= 0) endGame();
+    }, 1000);
+  }
+
+  function whack(i){
+    if(!running){ startGame(); return; }
+    if(i === activeCell){
+      score++;
+      scoreEl.textContent = score;
+      clearTimeout(popTimer);
+      cells[i].classList.remove('up');
+      cells[i].classList.add('hit');
+      cells[i].textContent = '💥';
+      activeCell = null;
+      setTimeout(()=>{ if(cells[i]) cells[i].classList.remove('hit'); }, 150);
+      setTimeout(()=>{ if(cells[i]) cells[i].textContent = ''; }, 150);
+      scheduleBug();
+    }
+  }
+
+  function endGame(){
+    running = false;
+    clearTimeout(popTimer);
+    clearInterval(countdownTimer);
+    cells.forEach((c,i)=>clearCell(i));
+    if(score > hiScore){ hiScore = score; hiScoreEl.textContent = hiScore; }
+    overlay.style.display = 'block';
+    overlay.textContent = '🐛 SQUASHED ' + score + ' BUGS! Tap any cell to play again.';
+  }
+
+  overlay.addEventListener('click', startGame);
+
+  window.whackPause = function(){
+    if(running){
+      running = false;
+      clearTimeout(popTimer);
+      clearInterval(countdownTimer);
+      cells.forEach((c,i)=>clearCell(i));
+      overlay.style.display = 'block';
+      overlay.textContent = 'Tap any cell to start squashing bugs 🐛';
+      activeCell = null;
+    }
+  };
+})();
+
+// ART STUDIO (paint app)
+(function(){
+  const canvas = document.getElementById('paintCanvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function fillWhite(){
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  }
+  fillWhite();
+
+  let tool = 'brush';
+  let color = '#0d0d12';
+  let size = 6;
+  let drawing = false;
+  let lastX = 0, lastY = 0;
+
+  const undoStack = [];
+  const redoStack = [];
+  const MAX_HISTORY = 25;
+
+  const undoBtn = document.querySelector('#menuEdit [data-action="undo"]');
+  const redoBtn = document.querySelector('#menuEdit [data-action="redo"]');
+
+  function updateMenuState(){
+    if(undoBtn) undoBtn.disabled = undoStack.length === 0;
+    if(redoBtn) redoBtn.disabled = redoStack.length === 0;
+  }
+
+  function saveState(){
+    undoStack.push(canvas.toDataURL());
+    if(undoStack.length > MAX_HISTORY) undoStack.shift();
+    redoStack.length = 0;
+    updateMenuState();
+  }
+
+  function restoreState(dataUrl){
+    return new Promise(resolve=>{
+      const img = new Image();
+      img.onload = ()=>{
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.drawImage(img,0,0);
+        resolve();
+      };
+      img.src = dataUrl;
+    });
+  }
+
+  function getPos(e){
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    let clientX, clientY;
+    if(e.touches && e.touches.length){
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    return { x: (clientX-rect.left)*scaleX, y: (clientY-rect.top)*scaleY };
+  }
+
+  function startDraw(e){
+    e.preventDefault();
+    drawing = true;
+    saveState();
+    const pos = getPos(e);
+    lastX = pos.x; lastY = pos.y;
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, (tool==='eraser' ? size*1.4 : size)/2, 0, Math.PI*2);
+    ctx.fillStyle = tool==='eraser' ? '#ffffff' : color;
+    ctx.fill();
+  }
+
+  function draw(e){
+    if(!drawing) return;
+    e.preventDefault();
+    const pos = getPos(e);
+    ctx.strokeStyle = tool==='eraser' ? '#ffffff' : color;
+    ctx.lineWidth = tool==='eraser' ? size*1.4 : size;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    lastX = pos.x; lastY = pos.y;
+  }
+
+  function endDraw(){ drawing = false; }
+
+  canvas.addEventListener('mousedown', startDraw);
+  canvas.addEventListener('mousemove', draw);
+  window.addEventListener('mouseup', endDraw);
+  canvas.addEventListener('touchstart', startDraw, {passive:false});
+  canvas.addEventListener('touchmove', draw, {passive:false});
+  canvas.addEventListener('touchend', endDraw);
+
+  // TOOLS
+  document.querySelectorAll('.paint-tool-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.paint-tool-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      tool = btn.getAttribute('data-tool');
+    });
+  });
+
+  // COLOR SWATCHES
+  const presetColors = ['#0d0d12','#ffffff','#ff5f56','#fbc531','#4ade80','#5aa9f7','#8b7ff0','#ff8577'];
+  const colorsWrap = document.getElementById('paintColors');
+  const colorPicker = document.getElementById('paintColorPicker');
+
+  function selectBrushWithColor(c){
+    color = c;
+    document.querySelectorAll('.paint-swatch').forEach(s=>s.classList.toggle('active', s.dataset.color === c));
+    document.querySelectorAll('.paint-tool-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelector('[data-tool="brush"]').classList.add('active');
+    tool = 'brush';
+  }
+
+  presetColors.forEach((c,i)=>{
+    const sw = document.createElement('button');
+    sw.type = 'button';
+    sw.className = 'paint-swatch' + (i===0 ? ' active' : '');
+    sw.style.background = c;
+    sw.dataset.color = c;
+    sw.title = c;
+    sw.addEventListener('click', ()=>{
+      selectBrushWithColor(c);
+      colorPicker.value = c;
+    });
+    colorsWrap.appendChild(sw);
+  });
+
+  colorPicker.addEventListener('input', ()=>{
+    selectBrushWithColor(colorPicker.value);
+  });
+
+  const sizeSlider = document.getElementById('paintSize');
+  const sizeVal = document.getElementById('paintSizeVal');
+  sizeSlider.addEventListener('input', ()=>{
+    size = parseInt(sizeSlider.value, 10);
+    sizeVal.textContent = size;
+  });
+
+  function triggerDownload(url, filename){
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  function savePng(){
+    const filename = 'ayush-art-studio-' + Date.now() + '.png';
+    if(canvas.toBlob){
+      canvas.toBlob(function(blob){
+        if(blob){
+          const url = URL.createObjectURL(blob);
+          try{
+            triggerDownload(url, filename);
+          } catch(err){
+            window.open(url, '_blank');
+          }
+          setTimeout(()=>URL.revokeObjectURL(url), 5000);
+        } else {
+          fallbackSave(filename);
+        }
+      }, 'image/png');
+    } else {
+      fallbackSave(filename);
+    }
+  }
+
+  function fallbackSave(filename){
+    const dataUrl = canvas.toDataURL('image/png');
+    try{
+      triggerDownload(dataUrl, filename);
+    } catch(err){
+      // last resort: open the image in a new tab so the user can long-press / right-click Save
+      const win = window.open();
+      if(win){
+        win.document.write('<title>' + filename + '</title><body style="margin:0;background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;"><img src="' + dataUrl + '" alt="Your artwork" style="max-width:100%;"></body>');
+      }
+    }
+  }
+
+  // MENU BAR
+  const menuBtns = document.querySelectorAll('.paint-menu-btn');
+  function closeAllMenus(){
+    document.querySelectorAll('.paint-menu-dropdown').forEach(d=>d.classList.remove('open'));
+    menuBtns.forEach(b=>b.classList.remove('active'));
+  }
+  menuBtns.forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const key = btn.getAttribute('data-menu');
+      const dropdown = document.getElementById('menu' + key.charAt(0).toUpperCase() + key.slice(1));
+      const wasOpen = dropdown.classList.contains('open');
+      closeAllMenus();
+      if(!wasOpen){
+        dropdown.classList.add('open');
+        btn.classList.add('active');
+      }
+    });
+  });
+  document.addEventListener('click', closeAllMenus);
+
+  // MENU ACTIONS
+  document.querySelectorAll('.paint-menu-dropdown button').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      if(btn.disabled) return;
+      const action = btn.getAttribute('data-action');
+      if(action === 'new' || action === 'clear'){
+        saveState();
+        fillWhite();
+      } else if(action === 'save'){
+        savePng();
+      } else if(action === 'undo'){
+        if(undoStack.length){
+          redoStack.push(canvas.toDataURL());
+          const prev = undoStack.pop();
+          restoreState(prev).then(updateMenuState);
+        }
+      } else if(action === 'redo'){
+        if(redoStack.length){
+          undoStack.push(canvas.toDataURL());
+          const next = redoStack.pop();
+          restoreState(next).then(updateMenuState);
+        }
+      }
+      closeAllMenus();
+    });
+  });
+
+  updateMenuState();
 })();
 </script>
 </body>
